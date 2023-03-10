@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#8BC34A"
+    android:backgroundTint="#8BC34A"
+    android:visibility="visible"
+    tools:context=".Activity2"
+    tools:visibility="visible">
+
+    <TextView
+        android:id="@+id/signin"
+        android:layout_width="171dp"
+        android:layout_height="77dp"
+        android:layout_margin="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="200dp"
+
+        android:layout_marginEnd="200dp"
+
+        android:fadingEdgeLength="80dp"
+        android:gravity="center"
+        android:text="Login"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="398dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signin"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="87dp"
+        android:drawablePadding="20dp"
+        android:hint="Username"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="401dp"
+        android:layout_height="78dp"
+        android:layout_below="@id/username"
+        android:layout_marginStart="10dp"
+        android:drawablePadding="20dp"
+        android:hint="password"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:text="Login" />
+
+    <TextView
+        android:id="@+id/forgetpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="Forgot password" />
+</RelativeLayout>
+
+
