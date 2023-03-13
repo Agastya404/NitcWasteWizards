@@ -7,6 +7,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Activity2 extends AppCompatActivity {
 
@@ -16,6 +19,11 @@ public class Activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_2);
         TextView username =(TextView) findViewById(R.id.username);
         TextView password=(TextView) findViewById(R.id.password);
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference();
 
         MaterialButton loginbtn=(MaterialButton) findViewById(R.id.loginbtn);
         //admin and

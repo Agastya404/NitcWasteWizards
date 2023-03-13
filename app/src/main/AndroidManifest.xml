@@ -11,14 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WasteManagement"
         tools:targetApi="31">
-
+        <activity
+            android:name=".PostComplaintPage"
+            android:exported="false" />
         <activity
             android:name=".AdminActivity2"
             android:exported="false" />
         <activity
             android:name=".Activity2"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
