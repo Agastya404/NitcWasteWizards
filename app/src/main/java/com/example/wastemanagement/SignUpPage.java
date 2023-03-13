@@ -97,8 +97,8 @@ public class SignUpPage extends AppCompatActivity {
                         if(task.isSuccessful())
                         {
                             Toast.makeText(SignUpPage.this, "Your account is created successfully", Toast.LENGTH_LONG).show();
-                            //UserDetails user = new UserDetails(username.getText().toString(), email.getText().toString());
-                            //reference.child("User").child(auth.getCurrentUser().getUid()).setValue(user);
+                            UserDetails user = new UserDetails(username.getText().toString(), email.getText().toString());
+                            reference.child("User").child(auth.getCurrentUser().getUid()).setValue(user);
 
                             Intent intent = new Intent(SignUpPage.this, Activity2.class);
                             startActivity(intent);

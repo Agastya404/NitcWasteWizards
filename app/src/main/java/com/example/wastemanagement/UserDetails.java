@@ -6,7 +6,8 @@ public class UserDetails {
     public UserDetails() {}
 
     public UserDetails(String name, String email) {
-        this.username = username;
         this.email = email;
+        this.username = username;
+
     }
 }
