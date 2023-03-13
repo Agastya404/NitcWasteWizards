@@ -69,6 +69,7 @@ public class SignUpPage extends AppCompatActivity {
                 else if (Patterns.EMAIL_ADDRESS.matcher(userEmailId).matches()) {
                     boolean check = checkNitcEmail(userEmailId);
                     if (check)
+                       // System.out.println("inside check ");
                         signUpFirebase(userEmailId, userPassword);
                     else
                         Toast.makeText(SignUpPage.this, "Enter NITC email id", Toast.LENGTH_SHORT).show();

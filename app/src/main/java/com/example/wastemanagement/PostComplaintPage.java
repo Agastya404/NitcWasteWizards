@@ -62,8 +62,9 @@ public class PostComplaintPage extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(PostComplaintPage.this, "Your complaint registered successfully", Toast.LENGTH_SHORT).show();
                     complaint_by_userFirebase(complaint_des,complaint_area,complaint_land);
+                    Toast.makeText(PostComplaintPage.this, "Your complaint registered successfully", Toast.LENGTH_SHORT).show();
+
 
                 }
             }
