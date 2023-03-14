@@ -1,13 +1,14 @@
 package com.example.wastemanagement;
 
 public class UserDetails {
-    public String username,email;
+    public String username,email,password;
 
     public UserDetails() {}
 
-    public UserDetails(String name, String email) {
+    public UserDetails(String username, String email, String password) {
         this.email = email;
         this.username = username;
+        this.password = password;
 
     }
 }
