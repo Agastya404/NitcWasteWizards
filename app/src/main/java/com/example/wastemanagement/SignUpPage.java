@@ -20,12 +20,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
+import java.util.UUID;
+
 public class SignUpPage extends AppCompatActivity {
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
-    EditText username,email,password,mobileno;
+    EditText username,email,password;
     Button signUp;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -41,9 +44,7 @@ public class SignUpPage extends AppCompatActivity {
 
         username = findViewById(R.id.editTextTextPersonName);
         email = findViewById(R.id.editTextTextEmailAddress);
-        password = findViewById(R.id.editTextTextPassword2);
-        mobileno = findViewById(R.id.editTextTextPassword);
-
+        password = findViewById(R.id.editTextTextPassword);
         signUp = findViewById(R.id.button);
 
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -97,10 +98,10 @@ public class SignUpPage extends AppCompatActivity {
                         if(task.isSuccessful())
                         {
                             Toast.makeText(SignUpPage.this, "Your account is created successfully", Toast.LENGTH_LONG).show();
-                            UserDetails user = new UserDetails(username.getText().toString(), email.getText().toString(), password.getText().toString(), mobileno.getText().toString());
+                            UserDetails user = new UserDetails(username.getText().toString(), email.getText().toString());
                             reference.child("User").child(auth.getCurrentUser().getUid()).setValue(user);
 
-                            Intent intent = new Intent(SignUpPage.this, UserDashboardPage.class);
+                            Intent intent = new Intent(SignUpPage.this, Activity2.class);
                             startActivity(intent);
                             finish();
                         }
