@@ -98,7 +98,7 @@ public class SignUpPage extends AppCompatActivity {
                             UserDetails user = new UserDetails(username.getText().toString(), email.getText().toString(), password.getText().toString());
                             reference.child("User").child(auth.getCurrentUser().getUid()).setValue(user);
 
-                            Intent intent = new Intent(SignUpPage.this, UserLoginPage.class);
+                            Intent intent = new Intent(SignUpPage.this, UserDashboardPage.class);
                             startActivity(intent);
                             finish();
                         }
