@@ -9,9 +9,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button3;
-    private Button button;
-    private Button button2;
+    private Button userLogin;
+    private Button adminLogin;
+    private Button registerUser;
 
    @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,24 +19,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        button= (Button) findViewById(R.id.button);
-        button3=(Button) findViewById(R.id.button3);
-        button2=(Button) findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
+        userLogin=findViewById(R.id.userLogin);
+        adminLogin=findViewById(R.id.adminLogin);
+        registerUser =findViewById(R.id.registerUser);
+        userLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                openActivity2();
+                openUserLogin();
             }
         });
-        button3.setOnClickListener(new View.OnClickListener() {
+        adminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View vw) {
 
-                adminActivityopen();
+                openAdminLogin();
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
+        registerUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View signs) {
                 openSignUpPage();
@@ -51,14 +51,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent3);
     }
 
-    public void openActivity2(){
+    public void openUserLogin(){
         Intent intent =new Intent(this, UserLoginPage.class);
         startActivity(intent);
 
     }
 
-    public void adminActivityopen(){
+    public void openAdminLogin(){
         Intent intent2 =new Intent(this, AdminActivity2.class);
         startActivity(intent2);
     }
+
 }

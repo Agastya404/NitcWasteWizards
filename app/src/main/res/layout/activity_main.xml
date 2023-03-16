@@ -23,7 +23,7 @@
         android:fontFamily="serif"
         android:text="NITC Waste Management System"
 
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.287"
@@ -31,10 +31,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/userLogin"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
+        android:backgroundTint="@color/green"
         android:layout_marginTop="404dp"
         android:layout_marginEnd="145dp"
         android:text="User Login"
@@ -54,22 +55,25 @@
         app:srcCompat="@drawable/waste_man" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/adminLogin"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="484dp"
+        android:text="Admin Login"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:backgroundTint="@color/green"
+        app:layout_constraintStart_toStartOf="@+id/userLogin"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/registerUser"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="564dp"
         android:text="register User"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="@+id/button3"
+        android:backgroundTint="@color/green"
+        app:layout_constraintEnd_toEndOf="@+id/adminLogin"
+        app:layout_constraintStart_toStartOf="@+id/adminLogin"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:text="Admin Login"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

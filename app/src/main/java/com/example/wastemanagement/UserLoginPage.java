@@ -168,9 +168,10 @@ public class UserLoginPage extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(UserLoginPage.this, "Sucessfully logged in ", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(UserLoginPage.this, UserDashboardPage.class));
-                    finish();
+                    Toast.makeText(UserLoginPage.this, "Sucessfully logged in ", Toast.LENGTH_SHORT).show();
+
+
                 }
                 else
                 {
@@ -180,7 +181,9 @@ public class UserLoginPage extends AppCompatActivity {
                 }
 
             });
+
         });
+
         //loginBtn.setOnClickListener(v -> startActivity(new Intent(UserLoginPage.this,SignUpPage.class )));
     }
 
