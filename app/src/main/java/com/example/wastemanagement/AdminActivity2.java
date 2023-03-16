@@ -30,7 +30,7 @@ public class AdminActivity2 extends AppCompatActivity {
             public void onClick(View view) {
                 if(adminEmail.getText().toString().equals("admin@nitc.ac.in") && adminPass.getText().toString().equals("admin123")){
                     Toast.makeText(AdminActivity2.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(AdminActivity2.this,MainActivity.class ));
+                    startActivity(new Intent(AdminActivity2.this,AdminDashboardPage.class ));
                 }
                 else{
                     Toast.makeText(AdminActivity2.this, "Login Failed! Enter Email and Password Correctly!", Toast.LENGTH_SHORT).show();
