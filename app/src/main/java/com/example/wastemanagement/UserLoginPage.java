@@ -169,7 +169,7 @@ public class UserLoginPage extends AppCompatActivity {
                 if(task.isSuccessful())
                 {
                     Toast.makeText(UserLoginPage.this, "Sucessfully logged in ", Toast.LENGTH_SHORT).show();
-                   // startActivity(new Intent(UserLoginPage.this, MainActivity.class));
+                    startActivity(new Intent(UserLoginPage.this, UserDashboardPage.class));
                     finish();
                 }
                 else
