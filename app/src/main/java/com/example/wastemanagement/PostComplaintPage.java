@@ -5,6 +5,7 @@ import static com.example.wastemanagement.R.id.send_complaint_button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,6 +47,9 @@ public class PostComplaintPage extends AppCompatActivity {
                 String complaint_des = comp_description.getText().toString();
                 String complaint_area = area.getText().toString();
                 String complaint_land = landmark.getText().toString();
+                String str = comp_description.getText().toString();
+                String area=comp_description.getText().toString();
+
 
                 if (complaint_des.isEmpty() && complaint_area.isEmpty())
                 {
@@ -62,6 +66,14 @@ public class PostComplaintPage extends AppCompatActivity {
                 }
                 else
                 {
+                    // Create the Intent object of this class Context() to Second_activity class
+                    Intent intent = new Intent(getApplicationContext(), ComplaintReggisterSuccessfully.class);
+                    // now by putExtra method put the value in key, value pair key is
+                    // message_key by this key we will receive the value, and put the string
+                    intent.putExtra("message_key", str);
+                    intent.putExtra("area",area);
+                    // start the Intent
+                    startActivity(intent);
                     complaint_by_userFirebase(complaint_des,complaint_area,complaint_land);
                     Toast.makeText(PostComplaintPage.this, "Your complaint registered successfully", Toast.LENGTH_SHORT).show();
 
