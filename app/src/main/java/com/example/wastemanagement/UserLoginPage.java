@@ -134,15 +134,8 @@ public class UserLoginPage extends AppCompatActivity {
         user_name=findViewById(R.id.username);
         pass_word=findViewById(R.id.password);
         Button loginBtn = findViewById(R.id.loginBtn);
-        Button signupBtn =findViewById(R.id.signup);
       //  Button btn_sign = findViewById(R.id.btn_signup);
         mAuth=FirebaseAuth.getInstance();
-        signupBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(UserLoginPage.this, SignUpPage.class));
-            }
-        });
         loginBtn.setOnClickListener(v -> {
             String email= user_name.getText().toString().trim();
             String password=pass_word.getText().toString().trim();
@@ -168,10 +161,9 @@ public class UserLoginPage extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                 if(task.isSuccessful())
                 {
-                    startActivity(new Intent(UserLoginPage.this, UserDashboardPage.class));
                     Toast.makeText(UserLoginPage.this, "Sucessfully logged in ", Toast.LENGTH_SHORT).show();
-
-
+                    startActivity(new Intent(UserLoginPage.this, UserDashboardPage.class));
+                    finish();
                 }
                 else
                 {
@@ -181,9 +173,7 @@ public class UserLoginPage extends AppCompatActivity {
                 }
 
             });
-
         });
-
         //loginBtn.setOnClickListener(v -> startActivity(new Intent(UserLoginPage.this,SignUpPage.class )));
     }
 

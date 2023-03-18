@@ -26,7 +26,8 @@ public class AdminDashboardPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(AdminDashboardPage.this, "opening Complaint page", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AdminDashboardPage.this,AdminComplaint.class ));
+                startActivity(new Intent(AdminDashboardPage.this, AdminComplaint.class ));
+                finish();
             }
         });
 

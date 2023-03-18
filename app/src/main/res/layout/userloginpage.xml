@@ -42,13 +42,20 @@
         android:textColorHint="@color/white"
         android:textSize="20dp" />
 
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="401dp"
+    android:layout_height="78dp"
+    android:id="@+id/passwordLayout"
+    app:startIconDrawable="@drawable/baseline_person_24"
+    android:layout_below="@id/username"
+    android:layout_marginStart="10dp"
+    app:endIconMode="password_toggle">
 
     <EditText
+
         android:id="@+id/password"
-        android:layout_width="401dp"
-        android:layout_height="78dp"
-        android:layout_below="@id/username"
-        android:layout_marginStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:drawablePadding="20dp"
         android:hint="password"
         android:padding="20dp"
@@ -57,11 +64,15 @@
         android:textSize="20dp" />
 
 
+</com.google.android.material.textfield.TextInputLayout>
+
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/passwordLayout"
         android:layout_marginStart="20dp"
         android:layout_marginTop="29dp"
         android:layout_marginEnd="20dp"
