@@ -8,40 +8,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 public class UserDashboardPage extends AppCompatActivity {
 
-    Button lodgeComplaint;
-    Button viewComplaint;
-    Button viewStatus;
+    Button lodgeCBtn,viewCBtn,viewSbtn;
 
-    Button userLogout;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard_page);
-
-
-        lodgeComplaint=findViewById(R.id.lodgeComplaint);
-        viewComplaint=findViewById(R.id.viewComplaints);
-        viewStatus=findViewById(R.id.viewSatuts);
-        userLogout=findViewById(R.id.userLogout);
-
-        lodgeComplaint.setOnClickListener(new View.OnClickListener() {
+        lodgeCBtn=findViewById(R.id.lodgeCBtn);
+        viewCBtn=findViewById(R.id.viewCBtn);
+        viewSbtn=findViewById(R.id.viewSBtn);
+        lodgeCBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View v) {
+                Toast.makeText(UserDashboardPage.this, "post your complain here!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(UserDashboardPage.this, PostComplaintPage.class));
+                finish();
             }
         });
-        userLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(UserDashboardPage.this, "Logout Successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(UserDashboardPage.this,MainActivity.class ));
-
-            }
-        });
-
-
     }
 }

@@ -2,6 +2,7 @@ package com.example.wastemanagement;
 
 import static com.example.wastemanagement.R.id.send_complaint_button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -12,13 +13,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class PostComplaintPage extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference reference = database.getReference();
+    DatabaseReference reference = database.getReference("UserComplaint");
 
 
     EditText comp_description;
@@ -86,7 +89,17 @@ public class PostComplaintPage extends AppCompatActivity {
     }
     private void complaint_by_userFirebase(String complaint_des,String complaint_area,String complaint_land)
     {
+
         UserComplaint usercomplaint= new UserComplaint(complaint_des,complaint_area,complaint_land);
-        reference.child("UserComplaint").push().setValue(usercomplaint);
-    }
+//        reference.child("UserComplaint").
+        reference.child(reference.push().getKey().toString()).setValue(usercomplaint).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(PostComplaintPage.this, "posted", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        };
+
 }
