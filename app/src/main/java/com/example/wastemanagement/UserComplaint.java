@@ -13,15 +13,15 @@ public class UserComplaint {
         this.complaint_land = complaint_land;
     }
 
-    public String getAuthor_name() {
+    public String getComplaint_des() {
         return complaint_des;
     }
 
-    public String getAuthor_email() {
+    public String getComplaint_area() {
         return complaint_area;
     }
 
-    public String getArticle_title() {
+    public String getComplaint_land() {
         return complaint_land;
     }
 
