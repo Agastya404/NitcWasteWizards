@@ -25,7 +25,7 @@ public class UserProfilePage extends AppCompatActivity {
 
     private TextView usernametext,emailtext,mobilenotext;
     private Button logout;
-    private ImageView imageavatar;
+    private ImageView imageavatar,personpic,mobilepic,emailpic;
     private String email;
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseUser user  = auth.getCurrentUser();
@@ -54,6 +54,9 @@ public class UserProfilePage extends AppCompatActivity {
         emailtext = findViewById(R.id.signupuseremailid);
         mobilenotext = findViewById(R.id.signupusermobileno);
         imageavatar = findViewById(R.id.imageView3);
+        personpic = findViewById(R.id.userprofilepic);
+        mobilepic = findViewById(R.id.userprofilmobilepic);
+        emailpic = findViewById(R.id.userprofilemailpic);
         logout = findViewById(R.id.logoutProfile);
 
         database = FirebaseDatabase.getInstance();
