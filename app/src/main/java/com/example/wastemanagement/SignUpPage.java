@@ -52,8 +52,10 @@ public class SignUpPage extends AppCompatActivity {
             public void onClick(View v) {
                 String userEmailId = email.getText().toString();
                 String userPassword = password.getText().toString();
+                String mobileNo = mobileno.getText().toString();
+                String userName = username.getText().toString();
 
-                if (userEmailId.isEmpty() && userPassword.isEmpty())
+                if (userEmailId.isEmpty() && userPassword.isEmpty() && mobileNo.isEmpty() && userName.isEmpty())
                 {
                     Toast.makeText(SignUpPage.this, "Please enter the Email id and Password", Toast.LENGTH_SHORT).show();
                 }
@@ -65,8 +67,16 @@ public class SignUpPage extends AppCompatActivity {
                 else if (userPassword.isEmpty())
                 {
                     Toast.makeText(SignUpPage.this, "Please enter a password", Toast.LENGTH_SHORT).show();
-                }
-                else if (Patterns.EMAIL_ADDRESS.matcher(userEmailId).matches()) {
+                } else if (mobileNo.isEmpty()) {
+                    Toast.makeText(SignUpPage.this, "Please enter a Mobile no", Toast.LENGTH_SHORT).show();
+
+                } else if (checkMobileNo(mobileNo)) {
+                    Toast.makeText(SignUpPage.this, "Please enter a valid mobile no", Toast.LENGTH_SHORT).show();
+
+                } else if (userName.isEmpty()) {
+                    Toast.makeText(SignUpPage.this, "Please enter a username", Toast.LENGTH_SHORT).show();
+
+                } else if (Patterns.EMAIL_ADDRESS.matcher(userEmailId).matches()) {
                     boolean check = checkNitcEmail(userEmailId);
                     if (check)
                        // System.out.println("inside check ");
@@ -88,8 +98,27 @@ public class SignUpPage extends AppCompatActivity {
         if(emailid[1].equals("nitc.ac.in"))
             return true;
         return false;
+
     }
 
+
+    private Boolean checkMobileNo(String mobileNo)
+    {
+        if(mobileNo.length() != 10)
+            return true;
+
+        else
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                if(!Character.isDigit(mobileNo.charAt(i)))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     private void signUpFirebase(String userEmailId, String userPassword) {
 
         auth.createUserWithEmailAndPassword(userEmailId,userPassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -15,29 +16,57 @@
         android:theme="@style/Theme.WasteManagement"
         tools:targetApi="31">
         <activity
-            android:name=".ViewComplaintPage"
-            android:exported="false" />
-        <activity
-            android:name=".PostComplaintPage"
-            android:exported="true" >  <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
-        <activity
-            android:name=".AdminActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".Activity2"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".ShowStaffDetail"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".SignUpPage"
+            android:name=".AddStaff"
             android:exported="true" />
+        <activity
+            android:name=".AddNewStaff"
+            android:exported="true" />
+        <activity
+            android:name=".ComplaintReggisterSuccessfully"
+            android:exported="false" />
+        <activity
+            android:name=".UserDashboardPage"
+            android:exported="true" />
+        <activity
+            android:name=".UserProfile"
+            android:exported="false" />
+        <activity
+            android:name=".AdminManageStaff"
+            android:exported="true" />
+
+        <activity
+            android:name=".AdminComplaint"
+            android:exported="false" />
+        <activity
+            android:name=".AdminDashboardPage"
+            android:exported="false" />
+        <activity
+            android:name=".ViewComplaintPage"
+            android:exported="false" />
+        <activity
+            android:name=".PostComplaintPage"
+            android:exported="true" />
+        <activity
+            android:name=".AdminActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".UserLoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".SignUpPage"
+            android:exported="true" ><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
     </application>
 
 </manifest>
