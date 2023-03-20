@@ -26,14 +26,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="C_UserEmail: "
+                android:text="Staff Name : "
                 android:textStyle="bold"
                 android:textSize="24dp"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/CuName"
+                android:id="@+id/SName"
                 android:textSize="24dp"
                 android:textColor="@color/black"/>
 
@@ -48,14 +48,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="C_Description: "
+                android:text="Phone : "
                 android:textStyle="bold"
                 android:textSize="24dp"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/CDes"
+                android:id="@+id/SPhone"
                 android:textSize="24dp"
                 android:textColor="@color/black"/>
 
@@ -70,14 +70,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="C_Area: "
+                android:text="Email : "
                 android:textStyle="bold"
                 android:textSize="24dp"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/CArea"
+                android:id="@+id/SEmail"
                 android:textSize="24dp"
                 android:textColor="@color/black"/>
 
@@ -92,45 +92,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="C_Landmark: "
+                android:text="Staff Type : "
                 android:textStyle="bold"
                 android:textSize="24dp"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/CLandmark"
+                android:id="@+id/SType"
                 android:textSize="24dp"
                 android:textColor="@color/black"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="5dp"
-            >
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="approve"
-                android:textSize="18dp"
-                android:backgroundTint="@color/green"
-                android:textColor="@color/white"
-                android:id="@+id/approveBtn"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="disapprove"
-                android:id="@+id/disapproveBtn"
-                android:layout_marginLeft="5dp"
-                android:backgroundTint="@color/green"
-                android:textSize="18dp"
-                android:textColor="@color/white"
-
-                />
 
 
         </LinearLayout>

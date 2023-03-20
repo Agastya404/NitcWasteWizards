@@ -22,29 +22,29 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AdminComplaint extends AppCompatActivity {
+public class AdminStaffDetails extends AppCompatActivity {
 
     private RecyclerView  recyclerView;
-    TextView viewComplaint;
-//    Button approve,disapprove;
-    ArrayList<UserComplaint> usercomplaint = new ArrayList<UserComplaint>();
-    adminAdapter adminAdapter;
+    TextView viewStaff;
+    //    Button approve,disapprove;
+    ArrayList<AddNewStaff> staff = new ArrayList<AddNewStaff>();
+    adminStaffAdapter adminStaffAdapter;
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(AdminComplaint.this,AdminDashboardPage.class));
+        startActivity(new Intent(AdminStaffDetails.this,AdminDashboardPage.class));
         finish();
     }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_complaint);
-        viewComplaint=findViewById(R.id.viewComplaint);
-        recyclerView=findViewById(R.id.adminComplaintRV);
+        setContentView(R.layout.activity_admin_staff_details);
+        viewStaff=findViewById(R.id.viewStaff);
+        recyclerView=findViewById(R.id.adminStaffRV);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference().child("UserComplaint");
+        DatabaseReference reference = database.getReference().child("AddNewStaff");
 //        important line of code
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         reference.addValueEventListener(new ValueEventListener() {
@@ -52,12 +52,12 @@ public class AdminComplaint extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Log.d("snap",dataSnapshot.toString());
-                    UserComplaint complaint =dataSnapshot.getValue(UserComplaint.class);
-                    usercomplaint.add(complaint);
+                    AddNewStaff newStaff =dataSnapshot.getValue(AddNewStaff.class);
+                    staff.add(newStaff);
 
                 }
-                adminAdapter = new adminAdapter(getApplicationContext(),usercomplaint);
-                recyclerView.setAdapter(adminAdapter);
+                adminStaffAdapter = new adminStaffAdapter(getApplicationContext(),staff);
+                recyclerView.setAdapter(adminStaffAdapter);
             }
 
             @Override

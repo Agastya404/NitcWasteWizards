@@ -12,11 +12,11 @@
         android:layout_width="253dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/staffname"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="93dp"
         android:layout_toEndOf="@+id/textphone"
         android:ems="10"
-        android:hint="Enter Email Id"
+
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="@color/white"
@@ -27,11 +27,11 @@
         android:layout_width="253dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/staffname"
-        android:layout_marginStart="37dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="166dp"
         android:layout_toEndOf="@+id/textphone"
         android:ems="10"
-        android:hint="Enter location"
+
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="@color/white"
@@ -42,11 +42,11 @@
         android:layout_width="253dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/staffname"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="23dp"
         android:layout_toEndOf="@+id/textphone"
         android:ems="10"
-        android:hint="Enter Phone Number"
+
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="@color/white"
@@ -61,9 +61,9 @@
         android:inputType="textPersonName"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
-        android:layout_marginLeft="55dp"
+        android:layout_marginLeft="75dp"
         android:textSize="50dp"
-        android:text="Add Worker"/>
+        android:text="Add Staff"/>
 
     <TextView
         android:id="@+id/textname"
@@ -105,16 +105,16 @@
         android:layout_marginTop="40dp"
         android:textColor="@color/white"
         android:layout_height="wrap_content"
-        android:text="Location:-" />
+        android:text="Staff Type:- " />
 
     <EditText
         android:id="@+id/staffname"
         android:layout_width="253dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textaddworker"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="123dp"
-        android:hint="Enter name"
+
 
         android:layout_toEndOf="@+id/textname"
         android:ems="10"
@@ -131,7 +131,9 @@
         android:layout_below="@+id/editlocation"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="120dp"
-        android:text="ADD" />
+        android:background="@color/green"
+        android:backgroundTint="@color/green"
+        android:text="ADD Staff" />
 
 
 </RelativeLayout>

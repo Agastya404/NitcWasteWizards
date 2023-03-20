@@ -2,15 +2,19 @@ package com.example.wastemanagement;
 
 public class UserComplaint {
 
-    public String complaint_des,complaint_area,complaint_land;
+    public String uname,complaint_des,complaint_area,complaint_land;
 
     public UserComplaint(){}
 
-    public UserComplaint(String complaint_des,String complaint_area,String complaint_land)
+    public UserComplaint(String uname,String complaint_des,String complaint_area,String complaint_land)
     {
+        this.uname=uname;
         this.complaint_des = complaint_des;
         this.complaint_area = complaint_area;
         this.complaint_land = complaint_land;
+    }
+    public String getUname(){
+        return uname;
     }
 
     public String getComplaint_des() {

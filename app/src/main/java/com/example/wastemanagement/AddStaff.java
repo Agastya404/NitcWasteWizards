@@ -21,7 +21,7 @@ public class AddStaff extends AppCompatActivity {
     EditText staff_name;
     EditText staff_phone;
     EditText staff_emailid;
-    EditText work_location;
+    EditText staff_type;
     Button addbtn;
 
     @SuppressLint("MissingInflatedId")
@@ -32,7 +32,7 @@ public class AddStaff extends AppCompatActivity {
         staff_name = findViewById(R.id.staffname);
         staff_phone = findViewById(R.id.editphone);
         staff_emailid = findViewById(R.id.editemail);
-        work_location = findViewById(R.id.editlocation);
+        staff_type = findViewById(R.id.editlocation);
         addbtn = findViewById(R.id.addstaff);
 
         addbtn.setOnClickListener(new View.OnClickListener() {
@@ -41,9 +41,9 @@ public class AddStaff extends AppCompatActivity {
                 String sta_name = staff_name.getText().toString();
                 String sta_phone = staff_phone.getText().toString();
                 String sta_emailid = staff_emailid.getText().toString();
-                String wo_location = work_location.getText().toString();
+                String staffType = staff_type.getText().toString();
 
-                if (sta_name.isEmpty() && sta_phone.isEmpty() && sta_emailid.isEmpty() && wo_location.isEmpty()) {
+                if (sta_name.isEmpty() && sta_phone.isEmpty() && sta_emailid.isEmpty() && staffType.isEmpty()) {
                     Toast.makeText(AddStaff.this, "Please enter the Name, phone number,email-Id and Location", Toast.LENGTH_SHORT).show();
                 } else if (sta_name.isEmpty()) {
                     Toast.makeText(AddStaff.this, "Please enter the Staff Name", Toast.LENGTH_SHORT).show();
@@ -52,14 +52,14 @@ public class AddStaff extends AppCompatActivity {
                     Toast.makeText(AddStaff.this, "Please enter phone Number", Toast.LENGTH_SHORT).show();
                 } else if (sta_emailid.isEmpty()) {
                     Toast.makeText(AddStaff.this, "Please enter email Id", Toast.LENGTH_SHORT).show();
-                } else if (wo_location.isEmpty()) {
+                } else if (staffType.isEmpty()) {
                     Toast.makeText(AddStaff.this, "Please enter Location", Toast.LENGTH_SHORT).show();
-                } else if (sta_name.isEmpty() || sta_phone.isEmpty() || sta_emailid.isEmpty() || wo_location.isEmpty()) {
+                } else if (sta_name.isEmpty() || sta_phone.isEmpty() || sta_emailid.isEmpty() || staffType.isEmpty()) {
                     Toast.makeText(AddStaff.this, "Please check your input", Toast.LENGTH_SHORT).show();
                 } else {
 
 
-                    Add_staff_to_Firebase(sta_name, sta_phone, sta_emailid, wo_location);
+                    Add_staff_to_Firebase(sta_name, sta_phone, sta_emailid, staffType);
                     Toast.makeText(AddStaff.this, "New Worker Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(AddStaff.this, AdminManageStaff.class));
 
@@ -68,8 +68,8 @@ public class AddStaff extends AppCompatActivity {
             }
 
 
-            private void Add_staff_to_Firebase(String staff_name, String staff_phone, String staff_emailid, String work_location) {
-                AddNewStaff addnewstaff = new AddNewStaff(staff_name, staff_phone, staff_emailid, work_location);
+            private void Add_staff_to_Firebase(String staff_name, String staff_phone, String staff_emailid, String staff_type) {
+                AddNewStaff addnewstaff = new AddNewStaff(staff_name, staff_phone, staff_emailid, staff_type);
                 reference.child("AddNewStaff").push().setValue(addnewstaff);
             }
         });

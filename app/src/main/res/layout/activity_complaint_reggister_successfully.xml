@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ComplaintReggisterSuccessfully"
+    tools:context=".ComplaintRegisterSuccessfully"
     android:background="@drawable/app_background"
     android:padding="20dp">
 
@@ -19,41 +19,57 @@
         android:textSize="40sp"
         android:textStyle="bold" />
 
-    <EditText
+    <TextView
         android:id="@+id/succcessfulMsg2"
         android:layout_width="242dp"
         android:layout_height="115dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
+
         android:layout_marginLeft="100dp"
         android:inputType="textPersonName"
         android:text="Complaint"
 
-        android:textColor="#E0EDEA"
+        android:textColor="@color/white"
         android:textSize="35dp"
         android:visibility="visible" />
 
-    <EditText
+    <TextView
         android:id="@+id/succcessfulMsg"
         android:layout_width="378dp"
         android:layout_height="185dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="120dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Registered Sucessfully"
+        android:text="Registered Sucessfully!"
 
-        android:textColor="#E0EDEA"
-        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:textSize="35dp"
         android:visibility="visible" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="168dp"
-        android:layout_height="126dp"
-        android:layout_below="@+id/complaintDetail"
-        android:layout_alignStart="@+id/complaintDetail"
-        android:layout_marginStart="69dp"
-        android:layout_marginTop="88dp"
-        app:srcCompat="@drawable/tickmark" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:elevation="12dp"
+        android:layout_marginTop="80dp"
+        android:id="@+id/view2"
+        app:cardCornerRadius="50dp"
+        android:layout_below="@+id/succcessfulMsg"
+        android:layout_centerHorizontal="true"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:thicknessRatio="1.9">
+        <ImageView
+            android:layout_height="120dp"
+            android:layout_width="120dp"
+            android:id="@+id/imageView1"
+            android:src="@drawable/baseline_register"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:background="@color/ligreen">
+        </ImageView>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
