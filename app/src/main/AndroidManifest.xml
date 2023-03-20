@@ -16,6 +16,12 @@
         android:theme="@style/Theme.WasteManagement"
         tools:targetApi="31">
         <activity
+            android:name=".UserViewStatus"
+            android:exported="false" />
+        <activity
+            android:name=".UserViewComplaint"
+            android:exported="false" />
+        <activity
             android:name=".AdminStaffDetails"
             android:exported="false" />
         <activity
@@ -44,9 +50,6 @@
             android:exported="false" />
         <activity
             android:name=".AdminDashboardPage"
-            android:exported="false" />
-        <activity
-            android:name=".ViewComplaintPage"
             android:exported="false" />
         <activity
             android:name=".PostComplaintPage"

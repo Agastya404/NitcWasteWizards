@@ -15,30 +15,30 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class adminAdapter extends RecyclerView.Adapter<adminAdapter.adminViewHolder> {
+public class userViewAdapter extends RecyclerView.Adapter<userViewAdapter.userViewViewHolder> {
 
 
     @NonNull
 
     Context context;
     ArrayList<UserComplaint> usercomplaint;
-    Button approve,disapprove;
 
 
-    public adminAdapter(@NonNull Context context, ArrayList<UserComplaint> usercomplaint) {
+
+    public userViewAdapter(@NonNull Context context, ArrayList<UserComplaint> usercomplaint) {
         this.context = context;
         this.usercomplaint = usercomplaint;
     }
 
-    public adminAdapter.adminViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.admin_allcomplaint_page,parent,false);
-        
-        return new adminViewHolder(view);
+    public userViewAdapter.userViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.user_viewcomplaint_page,parent,false);
+
+        return new userViewViewHolder(view);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull adminViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull userViewViewHolder holder, int position) {
         UserComplaint complaint=usercomplaint.get(position);
         holder.username.setText(complaint.getUname());
         holder.cDes.setText(complaint.getComplaint_des());
@@ -46,23 +46,7 @@ public class adminAdapter extends RecyclerView.Adapter<adminAdapter.adminViewHol
         holder.cLandmark.setText(complaint.getComplaint_land());
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("UserComplaint");
-        holder.approve.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-
-                complaint.setStatus("Approved");
-                reference.child(complaint.getC_id()).setValue(complaint);
-
-            }
-        });
-        holder.disapprove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                complaint.setStatus("Disapproved");
-                reference.child(complaint.getC_id()).setValue(complaint);
-            }
-        });
     }
 
     @Override
@@ -70,18 +54,17 @@ public class adminAdapter extends RecyclerView.Adapter<adminAdapter.adminViewHol
         return usercomplaint.size();
     }
 
-    public class  adminViewHolder extends RecyclerView.ViewHolder {
+    public class  userViewViewHolder extends RecyclerView.ViewHolder {
         TextView cDes,cArea,cLandmark,username;
 
-        Button approve,disapprove;
-        public adminViewHolder(@NonNull View itemView) {
+
+        public userViewViewHolder(@NonNull View itemView) {
             super(itemView);
             username=itemView.findViewById(R.id.CuName);
             cDes = itemView.findViewById(R.id.CDes);
             cArea=itemView.findViewById(R.id.CArea);
             cLandmark=itemView.findViewById(R.id.CLandmark);
-            approve=itemView.findViewById(R.id.approveBtn);
-            disapprove=itemView.findViewById(R.id.disapproveBtn);
+
 
 
         }

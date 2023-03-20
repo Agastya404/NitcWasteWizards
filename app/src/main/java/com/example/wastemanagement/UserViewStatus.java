@@ -22,27 +22,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class AdminComplaint extends AppCompatActivity {
+public class UserViewStatus extends AppCompatActivity {
 
     private RecyclerView  recyclerView;
     TextView viewComplaint;
-//    Button approve,disapprove;
+    //    Button approve,disapprove;
     ArrayList<UserComplaint> usercomplaint = new ArrayList<UserComplaint>();
-    adminAdapter adminAdapter;
+    UserStatusAdapter UserStatusAdapter;
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(AdminComplaint.this,AdminDashboardPage.class));
+        startActivity(new Intent(UserViewStatus.this,UserDashboardPage.class));
         finish();
     }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_complaint);
+        setContentView(R.layout.activity_user_view_status);
         viewComplaint=findViewById(R.id.viewComplaint);
-        recyclerView=findViewById(R.id.adminComplaintRV);
+        recyclerView=findViewById(R.id.userViewSRV);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference().child("UserComplaint");
@@ -54,14 +55,18 @@ public class AdminComplaint extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Log.d("snap",dataSnapshot.toString());
                     UserComplaint complaint =dataSnapshot.getValue(UserComplaint.class);
-//                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    FirebaseAuth mAuth=FirebaseAuth.getInstance();
+//
+                    Log.d("email",mAuth.getCurrentUser().getEmail());
+                    if(Objects.equals(complaint.getUname(), mAuth.getCurrentUser().getEmail())){
+                        usercomplaint.add(complaint);
+                        Log.d("uname",complaint.getUname().toString());
 
-//                    if(complaint.getUname() == mAuth.getCurrentUser().getEmail())
-                         usercomplaint.add(complaint);
+                    }
 
                 }
-                adminAdapter = new adminAdapter(getApplicationContext(),usercomplaint);
-                recyclerView.setAdapter(adminAdapter);
+                UserStatusAdapter = new UserStatusAdapter(getApplicationContext(),usercomplaint);
+                recyclerView.setAdapter(UserStatusAdapter);
             }
 
             @Override

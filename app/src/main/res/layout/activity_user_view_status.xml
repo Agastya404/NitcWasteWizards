@@ -16,17 +16,17 @@
 
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"
-        android:text="ALL COMPLAINTS"
-        android:textSize="40dp"
+        android:text="COMPLAINTS STATUS"
+        android:textSize="38dp"
         android:id="@+id/viewComplaint"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/greenl"
-        android:id="@+id/adminComplaintRV"
+        android:id="@+id/userViewSRV"
         android:layout_marginTop="60dp"
-       >
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 

@@ -39,6 +39,7 @@ public class PostComplaintPage extends AppCompatActivity {
         comp_description = findViewById(R.id.writeincompliantbox);
         area = findViewById(R.id.complaintinarea);
         landmark= findViewById(R.id.complaintarealandmark);
+
         sendbtn = findViewById(R.id.send_complaint_button);
 
         sendbtn.setOnClickListener(new View.OnClickListener()  {
@@ -90,10 +91,12 @@ public class PostComplaintPage extends AppCompatActivity {
     }
     private void complaint_by_userFirebase(String uname,String complaint_des, String complaint_area, String complaint_land)
     {
-
-        UserComplaint usercomplaint= new UserComplaint(uname,complaint_des,complaint_area,complaint_land);
+        String id=reference.push().getKey().toString();
+        UserComplaint usercomplaint= new UserComplaint(uname,complaint_des,complaint_area,complaint_land,"waiting",id);
 //        reference.child("UserComplaint").
-        reference.child(reference.push().getKey().toString()).setValue(usercomplaint).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+
+        reference.child(id).setValue(usercomplaint).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){

@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class UserDashboardPage extends AppCompatActivity {
 
-    Button lodgeCBtn,viewCBtn,viewSbtn;
+    Button lodgeCBtn,viewCBtn,viewSBtn;
 
     @Override
 
@@ -20,7 +20,7 @@ public class UserDashboardPage extends AppCompatActivity {
         setContentView(R.layout.activity_user_dashboard_page);
         lodgeCBtn=findViewById(R.id.lodgeCBtn);
         viewCBtn=findViewById(R.id.viewCBtn);
-        viewSbtn=findViewById(R.id.viewSBtn);
+        viewSBtn=findViewById(R.id.viewSBtn);
         lodgeCBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,5 +29,23 @@ public class UserDashboardPage extends AppCompatActivity {
                 finish();
             }
         });
+        viewCBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(UserDashboardPage.this, "See your complain here!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(UserDashboardPage.this,UserViewComplaint.class));
+                finish();
+            }
+        });
+        viewSBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(UserDashboardPage.this, "See your complain here!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(UserDashboardPage.this,UserViewStatus.class));
+                finish();
+            }
+        });
+
+
     }
 }

@@ -161,6 +161,7 @@ public class UserLoginPage extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                 if(task.isSuccessful())
                 {
+
                     Toast.makeText(UserLoginPage.this, "Sucessfully logged in ", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(UserLoginPage.this, UserDashboardPage.class));
                     finish();

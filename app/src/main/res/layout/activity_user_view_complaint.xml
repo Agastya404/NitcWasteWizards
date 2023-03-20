@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminComplaint"
+    tools:context=".UserViewComplaint"
     android:backgroundTint="@color/green"
     android:background="@color/green"
 
@@ -16,7 +16,7 @@
 
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"
-        android:text="ALL COMPLAINTS"
+        android:text="MY COMPLAINTS"
         android:textSize="40dp"
         android:id="@+id/viewComplaint"/>
 
@@ -24,9 +24,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/greenl"
-        android:id="@+id/adminComplaintRV"
+        android:id="@+id/userComplaintRV"
         android:layout_marginTop="60dp"
-       >
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 
