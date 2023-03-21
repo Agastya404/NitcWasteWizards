@@ -28,7 +28,7 @@ public class SignUpPage extends AppCompatActivity {
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
-    EditText username,email,password;
+    EditText username,email,password,mobileno;
     Button signUp;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -44,7 +44,8 @@ public class SignUpPage extends AppCompatActivity {
 
         username = findViewById(R.id.editTextTextPersonName);
         email = findViewById(R.id.editTextTextEmailAddress);
-        password = findViewById(R.id.editTextTextPassword);
+        password = findViewById(R.id.editTextTextPassword2);
+        mobileno = findViewById(R.id.editTextTextPassword);
         signUp = findViewById(R.id.button);
 
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +58,7 @@ public class SignUpPage extends AppCompatActivity {
 
                 if (userEmailId.isEmpty() && userPassword.isEmpty() && mobileNo.isEmpty() && userName.isEmpty())
                 {
-                    Toast.makeText(SignUpPage.this, "Please enter the Email id and Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpPage.this, "Please enter the details", Toast.LENGTH_SHORT).show();
                 }
                 else if (userEmailId.isEmpty())
                 {
@@ -67,16 +68,20 @@ public class SignUpPage extends AppCompatActivity {
                 else if (userPassword.isEmpty())
                 {
                     Toast.makeText(SignUpPage.this, "Please enter a password", Toast.LENGTH_SHORT).show();
-                } else if (mobileNo.isEmpty()) {
+                }
+                else if (mobileNo.isEmpty()) {
                     Toast.makeText(SignUpPage.this, "Please enter a Mobile no", Toast.LENGTH_SHORT).show();
 
-                } else if (checkMobileNo(mobileNo)) {
+                }
+                else if (checkMobileNo(mobileNo)) {
                     Toast.makeText(SignUpPage.this, "Please enter a valid mobile no", Toast.LENGTH_SHORT).show();
 
-                } else if (userName.isEmpty()) {
+                }
+                else if (userName.isEmpty()) {
                     Toast.makeText(SignUpPage.this, "Please enter a username", Toast.LENGTH_SHORT).show();
 
-                } else if (Patterns.EMAIL_ADDRESS.matcher(userEmailId).matches()) {
+                }
+                else if (Patterns.EMAIL_ADDRESS.matcher(userEmailId).matches()) {
                     boolean check = checkNitcEmail(userEmailId);
                     if (check)
                        // System.out.println("inside check ");
@@ -130,7 +135,7 @@ public class SignUpPage extends AppCompatActivity {
                             UserDetails user = new UserDetails(username.getText().toString(), email.getText().toString());
                             reference.child("User").child(auth.getCurrentUser().getUid()).setValue(user);
 
-                            Intent intent = new Intent(SignUpPage.this, Activity2.class);
+                            Intent intent = new Intent(SignUpPage.this, UserDashboardPage.class);
                             startActivity(intent);
                             finish();
                         }
