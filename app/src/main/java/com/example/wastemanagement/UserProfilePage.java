@@ -33,10 +33,7 @@ public class UserProfilePage extends AppCompatActivity {
 
     private FirebaseDatabase database;
 
-   private DatabaseReference reference;
-
-   private static final String USERS = "User";
-    private Map<String, String> userMap;
+    private DatabaseReference reference;
 
 
 
@@ -55,7 +52,7 @@ public class UserProfilePage extends AppCompatActivity {
         mobilenotext = findViewById(R.id.signupusermobileno);
         imageavatar = findViewById(R.id.imageView3);
         personpic = findViewById(R.id.userprofilepic);
-        mobilepic = findViewById(R.id.userprofilmobilepic);
+//        mobilepic = findViewById(R.id.userprofilmobilepic);
         emailpic = findViewById(R.id.userprofilemailpic);
         logout = findViewById(R.id.logoutProfile);
 
@@ -80,7 +77,7 @@ public class UserProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 auth.signOut();
-                Intent intent = new Intent (UserProfilePage.this, UserDashboardPage.class);
+                Intent intent = new Intent (UserProfilePage.this, MainActivity.class);
                 startActivity(intent);
                 finishAffinity();
             }

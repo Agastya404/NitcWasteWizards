@@ -22,4 +22,19 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_user_profile_nav">UserProfileNav</string>
     <string name="all_staff_details">ALL STAFF DETAILS</string>
+
+    <string name="rekhalinktolinkedin">
+        <a href="https://www.linkedin.com/in/rekha-kumari-3568aa1b2">www.rekha_linkedin.com</a>
+    </string>
+    <string name="amanlinktolinkedin">
+        <a href="https://www.linkedin.com/in/aman-yadav-baaab3219">www.aman_linkedin.com</a>
+    </string>
+    <string name="gargilinktolinkedin">
+        <a href="https://www.linkedin.com/in/rekha-kumari-3568aa1b2">www.gargi_linkedin.com</a>
+    </string>
+    <string-array name="staffType">
+        <item>Collector</item>
+        <item>Driver</item>
+    </string-array>
+
 </resources>

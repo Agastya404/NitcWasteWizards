@@ -126,13 +126,22 @@ import com.google.firebase.auth.FirebaseAuth;
 public class UserLoginPage extends AppCompatActivity {
     private EditText user_name, pass_word;
     FirebaseAuth mAuth;
-
+    Button signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userloginpage);
         user_name=findViewById(R.id.username);
         pass_word=findViewById(R.id.password);
+        signup=findViewById(R.id.signup);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(UserLoginPage.this, "Opening Registration Page ", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(UserLoginPage.this, SignUpPage.class));
+                finish();
+            }
+        });
         Button loginBtn = findViewById(R.id.loginBtn);
       //  Button btn_sign = findViewById(R.id.btn_signup);
         mAuth=FirebaseAuth.getInstance();
@@ -161,10 +170,16 @@ public class UserLoginPage extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                 if(task.isSuccessful())
                 {
+                    if(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+                        Toast.makeText(UserLoginPage.this, "Sucessfully logged in ", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(UserLoginPage.this, UserDashboardPage.class));
+                        finish();
+                    }
+                    else {
+                        Toast.makeText(this, "please verify your email first", Toast.LENGTH_SHORT).show();
+                        FirebaseAuth.getInstance().signOut();
+                    }
 
-                    Toast.makeText(UserLoginPage.this, "Sucessfully logged in ", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(UserLoginPage.this, UserProfilePage.class));
-                    finish();
                 }
                 else
                 {

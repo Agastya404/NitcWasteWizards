@@ -13,15 +13,21 @@ import android.widget.Toast;
 public class AdminManageStaff extends AppCompatActivity {
 
   
-    Button addStaff,updateStaff,showStaff;
+    Button addStaff,showStaff;
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(AdminManageStaff.this,AdminDashboardPage.class));
+        finish();
+    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_manage_staff);
         addStaff=findViewById(R.id.addstaff);
-        updateStaff=findViewById(R.id.update_staff);
+
         showStaff=findViewById(R.id.showstaffdetail);
         addStaff.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 Toast.makeText(AdminManageStaff.this, "add staff here", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(AdminManageStaff.this,AddStaff.class));

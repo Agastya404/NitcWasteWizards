@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#013220"
-    tools:context=".UserProfilePage">
+    android:background="@drawable/app_background"
+    tools:context=".UserProfilePage"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -24,7 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bkgrnd" />
+             />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView3"
@@ -135,7 +136,8 @@
             app:layout_constraintBottom_toTopOf="@+id/logoutProfile"
             app:layout_constraintEnd_toStartOf="@+id/signupusermobileno"
             app:layout_constraintStart_toEndOf="@+id/userprofilmobilepic"
-            app:layout_constraintTop_toTopOf="@+id/userprofilmobilepic" />
+            app:layout_constraintTop_toTopOf="@+id/userprofilmobilepic"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/signupusername"
@@ -167,7 +169,8 @@
             app:layout_constraintBottom_toTopOf="@+id/logoutProfile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/signupuseremailid" />
+            app:layout_constraintTop_toBottomOf="@+id/signupuseremailid"
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/logoutProfile"

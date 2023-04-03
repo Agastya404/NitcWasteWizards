@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAboutUs();
+                    openAboutUs();
             }
         });
         userLogin.setOnClickListener(new View.OnClickListener() {
@@ -52,10 +52,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void openAboutUs(){
-       Intent intent4=new Intent(this,AboutUs.class);
+       Intent intent4=new Intent(this,AboutUsNext.class);
        startActivity(intent4);
     }
     private void openSignUpPage() {

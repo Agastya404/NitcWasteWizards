@@ -49,6 +49,10 @@ public class SignUpPage extends AppCompatActivity {
         signUp = findViewById(R.id.button);
 
         signUp.setOnClickListener(new View.OnClickListener() {
+
+
+
+
             @Override
             public void onClick(View v) {
                 String userEmailId = email.getText().toString();
@@ -131,11 +135,13 @@ public class SignUpPage extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
+                            FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification();
                             Toast.makeText(SignUpPage.this, "Your account is created successfully", Toast.LENGTH_LONG).show();
-                            UserDetails user = new UserDetails(username.getText().toString(), email.getText().toString());
+                            UserDetails user = new UserDetails(username.getText().toString(), email.getText().toString(),mobileno.getText().toString(),password.getText().toString());
                             reference.child("User").child(auth.getCurrentUser().getUid()).setValue(user);
 
-                            Intent intent = new Intent(SignUpPage.this, UserDashboardPage.class);
+                            FirebaseAuth.getInstance().signOut(); //we have to re login if not write this
+                            Intent intent = new Intent(SignUpPage.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         }

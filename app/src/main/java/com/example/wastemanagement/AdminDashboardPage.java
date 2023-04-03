@@ -21,7 +21,15 @@ public class AdminDashboardPage extends AppCompatActivity {
         Button adminComplaint =findViewById(R.id.adminComplaint);
         Button adminStaff = findViewById(R.id.adminStaff);
         Button adminLogout = findViewById(R.id.adminLogout);
-
+        Button feedbackBtn=findViewById(R.id.feedBtn);
+        feedbackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(AdminDashboardPage.this, "opening Feedback page", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AdminDashboardPage.this, AdminFeedbackPage.class ));
+                finish();
+            }
+        });
         adminComplaint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

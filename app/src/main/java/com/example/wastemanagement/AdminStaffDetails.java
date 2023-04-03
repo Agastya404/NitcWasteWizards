@@ -33,7 +33,7 @@ public class AdminStaffDetails extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(AdminStaffDetails.this,AdminDashboardPage.class));
+        startActivity(new Intent(AdminStaffDetails.this,AdminManageStaff.class));
         finish();
     }
 
@@ -46,7 +46,7 @@ public class AdminStaffDetails extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference().child("AddNewStaff");
 //        important line of code
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(AdminStaffDetails.this));
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -56,7 +56,7 @@ public class AdminStaffDetails extends AppCompatActivity {
                     staff.add(newStaff);
 
                 }
-                adminStaffAdapter = new adminStaffAdapter(getApplicationContext(),staff);
+                adminStaffAdapter = new adminStaffAdapter(AdminStaffDetails.this,staff);
                 recyclerView.setAdapter(adminStaffAdapter);
             }
 

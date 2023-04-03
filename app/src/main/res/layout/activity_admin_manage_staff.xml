@@ -18,25 +18,20 @@
         android:backgroundTint="@color/green"
         android:text="Add staff" />
 
-    <Button
-        android:id="@+id/update_staff"
-        android:layout_width="196dp"
-        android:layout_height="67dp"
-        android:layout_below="@+id/addstaff"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="89dp"
-        android:backgroundTint="@color/green"
-        android:text="Update Staff" />
 
     <Button
         android:id="@+id/showstaffdetail"
         android:layout_width="196dp"
         android:layout_height="67dp"
-        android:layout_below="@+id/update_staff"
+        android:layout_below="@+id/addstaff"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
-        android:backgroundTint="@color/green"
         android:layout_marginTop="107dp"
-        android:text="Show staff details" />
+        android:layout_marginEnd="115dp"
+        android:backgroundTint="@color/green"
+        android:text="View Staff" />
 
     <EditText
         android:id="@+id/editTextTextPersonName6"

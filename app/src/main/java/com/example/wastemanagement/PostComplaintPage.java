@@ -7,27 +7,45 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class PostComplaintPage extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("UserComplaint");
 
-
-    EditText username,comp_description;
-    EditText area;
+    TextView username;
+    EditText comp_description;
+    Spinner area;
+    String [] zones={"Zone-A","Zone-B","Zone-C","Zone-D","Zone-E"};
     EditText landmark;
     Button sendbtn;
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+    FirebaseUser user  = auth.getCurrentUser();
+    private DatabaseReference ref;
 
 
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(PostComplaintPage.this,UserDashboardPage.class));
+        finish();
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -41,14 +59,34 @@ public class PostComplaintPage extends AppCompatActivity {
         landmark= findViewById(R.id.complaintarealandmark);
 
         sendbtn = findViewById(R.id.send_complaint_button);
+        ref= database.getReference();
+        username.setText(user.getEmail());
+
+
+        ArrayAdapter<String> adapter =new ArrayAdapter<String>(PostComplaintPage.this, android.R.layout.simple_spinner_item,zones);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        area.setAdapter(adapter);
+        area.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String value=parent.getItemAtPosition(position).toString();
+                Toast.makeText(PostComplaintPage.this, zones[position], Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         sendbtn.setOnClickListener(new View.OnClickListener()  {
 
             @Override
             public void onClick(View v) {
-                String uname=username.getText().toString();
+
+                String uname=user.getEmail();
                 String complaint_des = comp_description.getText().toString();
-                String complaint_area = area.getText().toString();
+                String complaint_area = area.getSelectedItem().toString();
                 String complaint_land = landmark.getText().toString();
                 String str = comp_description.getText().toString();
                 String area=comp_description.getText().toString();

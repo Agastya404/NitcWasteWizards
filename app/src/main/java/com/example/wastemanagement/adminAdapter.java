@@ -1,6 +1,8 @@
 package com.example.wastemanagement;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +24,7 @@ public class adminAdapter extends RecyclerView.Adapter<adminAdapter.adminViewHol
 
     Context context;
     ArrayList<UserComplaint> usercomplaint;
-    Button approve,disapprove;
+    Button approve,disapprove,delete;
 
 
     public adminAdapter(@NonNull Context context, ArrayList<UserComplaint> usercomplaint) {
@@ -44,6 +46,7 @@ public class adminAdapter extends RecyclerView.Adapter<adminAdapter.adminViewHol
         holder.cDes.setText(complaint.getComplaint_des());
         holder.cArea.setText(complaint.getComplaint_area());
         holder.cLandmark.setText(complaint.getComplaint_land());
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("UserComplaint");
         holder.approve.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +66,33 @@ public class adminAdapter extends RecyclerView.Adapter<adminAdapter.adminViewHol
                 reference.child(complaint.getC_id()).setValue(complaint);
             }
         });
+       holder.delete.setOnLongClickListener(new View.OnLongClickListener() {
+           @Override
+           public boolean onLongClick(View v) {
+               AlertDialog.Builder builder=new AlertDialog.Builder(context)
+                       .setTitle("Delete Complaint")
+                       .setMessage("Are you sure want to delete this complaint?")
+                       .setIcon(R.drawable.baseline_delete_24)
+                       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               usercomplaint.remove(position);
+                               notifyDataSetChanged();
+                           }
+                       })
+                       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+
+                           }
+                       });
+               builder.show();
+
+               return true;
+           }
+       });
     }
+
 
     @Override
     public int getItemCount() {
@@ -73,7 +102,7 @@ public class adminAdapter extends RecyclerView.Adapter<adminAdapter.adminViewHol
     public class  adminViewHolder extends RecyclerView.ViewHolder {
         TextView cDes,cArea,cLandmark,username;
 
-        Button approve,disapprove;
+        Button approve,disapprove,delete;
         public adminViewHolder(@NonNull View itemView) {
             super(itemView);
             username=itemView.findViewById(R.id.CuName);
@@ -82,6 +111,7 @@ public class adminAdapter extends RecyclerView.Adapter<adminAdapter.adminViewHol
             cLandmark=itemView.findViewById(R.id.CLandmark);
             approve=itemView.findViewById(R.id.approveBtn);
             disapprove=itemView.findViewById(R.id.disapproveBtn);
+            delete=itemView.findViewById(R.id.deleteCBtn);
 
 
         }

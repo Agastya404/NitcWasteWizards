@@ -47,7 +47,7 @@ public class AdminComplaint extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference().child("UserComplaint");
 //        important line of code
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(AdminComplaint.this));
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -60,7 +60,7 @@ public class AdminComplaint extends AppCompatActivity {
                          usercomplaint.add(complaint);
 
                 }
-                adminAdapter = new adminAdapter(getApplicationContext(),usercomplaint);
+                adminAdapter = new adminAdapter(AdminComplaint.this,usercomplaint);
                 recyclerView.setAdapter(adminAdapter);
             }
 
