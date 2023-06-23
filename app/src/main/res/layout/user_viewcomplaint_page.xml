@@ -4,9 +4,9 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="12dp"
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="20dp"
     android:padding="8dp"
-    android:layout_marginBottom="5dp"
+    android:layout_marginBottom="20dp"
     android:backgroundTint="@color/ligreen"
     app:circularflow_radiusInDP="5dp"
 
@@ -105,6 +105,7 @@
 
 
         </LinearLayout>
+
 
 
     </LinearLayout>

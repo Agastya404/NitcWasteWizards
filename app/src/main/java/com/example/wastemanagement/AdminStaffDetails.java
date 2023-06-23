@@ -52,6 +52,7 @@ public class AdminStaffDetails extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Log.d("snap",dataSnapshot.toString());
+                    dataSnapshot.getKey();
                     AddNewStaff newStaff =dataSnapshot.getValue(AddNewStaff.class);
                     staff.add(newStaff);
 

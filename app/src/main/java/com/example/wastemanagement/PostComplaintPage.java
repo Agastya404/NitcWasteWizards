@@ -29,11 +29,12 @@ public class PostComplaintPage extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("UserComplaint");
+    DatabaseReference reference2 = database.getReference("ComplaintSummary");
 
     TextView username;
     EditText comp_description;
     Spinner area;
-    String [] zones={"Zone-A","Zone-B","Zone-C","Zone-D","Zone-E"};
+    String [] zones={"Zone-A(Main Building)","Zone-B(Mega Boys Hostel)","Zone-C(LH & SOMS)","Zone-D(Chemistry dept)","Zone-E(Sac Building)"};
     EditText landmark;
     Button sendbtn;
     FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -130,15 +131,28 @@ public class PostComplaintPage extends AppCompatActivity {
     private void complaint_by_userFirebase(String uname,String complaint_des, String complaint_area, String complaint_land)
     {
         String id=reference.push().getKey().toString();
-        UserComplaint usercomplaint= new UserComplaint(uname,complaint_des,complaint_area,complaint_land,"waiting",id);
+        UserComplaint usercomplaint= new UserComplaint(uname,complaint_des,complaint_area,complaint_land,"WAITING",id,"NONE","NA");
 //        reference.child("UserComplaint").
 
 
+        reference2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                long total = (long) snapshot.child("totalCC").getValue();
+
+                reference2.child("totalCC").setValue(++total);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         reference.child(id).setValue(usercomplaint).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(PostComplaintPage.this, "posted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostComplaintPage.this, "Done", Toast.LENGTH_SHORT).show();
                 }
             }
         });

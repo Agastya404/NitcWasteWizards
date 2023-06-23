@@ -14,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
     private Button registerUser;
     private Button aboutUs;
 
-   @Override
+    private Button supervisor;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -23,11 +25,12 @@ public class MainActivity extends AppCompatActivity {
         userLogin=findViewById(R.id.userLogin);
         adminLogin=findViewById(R.id.adminLogin);
         registerUser =findViewById(R.id.registerUser);
+        supervisor=findViewById(R.id.suprvisor);
         aboutUs=findViewById(R.id.aboutUs);
         aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    openAboutUs();
+                openAboutUs();
             }
         });
         userLogin.setOnClickListener(new View.OnClickListener() {
@@ -52,12 +55,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        supervisor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSupervisor();
+            }
+        });
+
 
     }
 
     private void openAboutUs(){
-       Intent intent4=new Intent(this,AboutUsNext.class);
-       startActivity(intent4);
+        Intent intent4=new Intent(this,AboutUsNext.class);
+        startActivity(intent4);
+    }
+
+    private void openSupervisor(){
+        Intent intent5=new Intent(this,OpenSupervisor.class);
+        startActivity(intent5);
     }
     private void openSignUpPage() {
         Intent intent3 =new Intent(this, SignUpPage.class);

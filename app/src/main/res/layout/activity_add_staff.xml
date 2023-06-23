@@ -129,55 +129,36 @@
 
     <TextView
         android:id="@+id/Slocation"
-        android:layout_width="wrap_content"
+        android:layout_width="15dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
         android:layout_below="@id/textlocation"
-        android:layout_marginTop="40dp"
-        android:text="Location:-"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="165dp"
+        android:layout_toStartOf="@+id/SlocationE"
+        android:text="TLE:-"
         android:textColor="@color/white"
         android:textSize="25dp" />
 
-    <Spinner
+    <TextView
         android:id="@+id/SlocationE"
-        android:layout_width="253dp"
+        android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textlocation"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="40dp"
+        android:textSize="25dp"
+        android:layout_marginStart="-34dp"
+        android:layout_marginTop="25dp"
         android:layout_toEndOf="@+id/textlocation"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
-    <TextView
-        android:id="@+id/SStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_below="@id/Slocation"
-        android:layout_marginTop="40dp"
-        android:text="Status:-"
-        android:textColor="@color/white"
 
-        android:textSize="25dp" />
-    <Spinner
-        android:id="@+id/SStatusE"
-        android:layout_width="253dp"
-
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Slocation"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="40dp"
-
-        android:layout_toEndOf="@+id/textlocation"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:scrollbarSize="40dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
 
     <Button
         android:id="@+id/addstaff"
@@ -185,7 +166,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editlocation"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="135dp"
         android:backgroundTint="@color/green"
 
         android:text="ADD Staff" />

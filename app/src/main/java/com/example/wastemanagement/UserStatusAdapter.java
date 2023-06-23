@@ -45,6 +45,8 @@ public class UserStatusAdapter extends RecyclerView.Adapter<UserStatusAdapter.Us
         holder.cArea.setText(complaint.getComplaint_area());
         holder.cLandmark.setText(complaint.getComplaint_land());
         holder.status.setText(complaint.getStatus());
+        holder.progress.setText(complaint.getC_progress());
+        holder.assignto.setText(complaint.getC_assign());
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("UserComplaint");
 
@@ -56,7 +58,7 @@ public class UserStatusAdapter extends RecyclerView.Adapter<UserStatusAdapter.Us
     }
 
     public class  UserStatusViewHolder extends RecyclerView.ViewHolder {
-        TextView cDes,cArea,cLandmark,username,status;
+        TextView cDes,cArea,cLandmark,username,status,progress,assignto;
 
         public UserStatusViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,8 +67,8 @@ public class UserStatusAdapter extends RecyclerView.Adapter<UserStatusAdapter.Us
             cArea=itemView.findViewById(R.id.CArea);
             cLandmark=itemView.findViewById(R.id.CLandmark);
             status=itemView.findViewById(R.id.C_Status);
-
-
+            progress=itemView.findViewById(R.id.C_Progress);
+            assignto=itemView.findViewById(R.id.C_Assign);
         }
 
 

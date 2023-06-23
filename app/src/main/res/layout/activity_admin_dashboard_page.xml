@@ -8,8 +8,21 @@
     tools:context=".UserDashboardPage">
 
     <Button
+        android:id="@+id/adminComplaint2"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
+        android:drawableStart="@drawable/ic_user_dashboard_icon"
+        android:text="All Complaints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.087" />
+
+    <Button
         android:id="@+id/feedBtn"
-        android:layout_width="167dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/green"
         android:drawableStart="@drawable/ic_user_dashboard_icon"
@@ -17,9 +30,10 @@
         android:drawableTint="@color/white"
         android:text="View Feedbacks"
         app:layout_constraintBottom_toTopOf="@+id/adminLogout"
-        app:layout_constraintEnd_toEndOf="@+id/adminStaff"
-        app:layout_constraintStart_toStartOf="@+id/adminStaff"
-        app:layout_constraintTop_toBottomOf="@+id/adminStaff" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/adminAssign"
+        app:layout_constraintVertical_bias="0.157" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView2"
@@ -32,38 +46,37 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintVertical_bias="0.171" />
 
     <Button
         android:id="@+id/adminComplaint"
-        android:layout_width="wrap_content"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/green"
         android:drawableStart="@drawable/ic_user_dashboard_icon"
-        android:text="All Complaints"
+        android:text="Complaint approval"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.265" />
+        app:layout_constraintVertical_bias="0.212" />
 
     <Button
-        android:id="@+id/adminStaff"
-        android:layout_width="166dp"
-        android:layout_height="48dp"
+        android:id="@+id/adminAssign"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/green"
         android:drawableStart="@drawable/ic_user_dashboard_icon"
-        android:text="Manage Staff"
+        android:text="Assign complaint"
         app:layout_constraintBottom_toTopOf="@+id/adminLogout"
-        app:layout_constraintEnd_toEndOf="@+id/adminComplaint"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/adminComplaint"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/adminComplaint"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <Button
         android:id="@+id/adminLogout"
-        android:layout_width="167dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/green"
         android:drawableStart="@drawable/ic_user_dashboard_icon"
@@ -75,6 +88,35 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/adminComplaint"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89" />
+        app:layout_constraintVertical_bias="0.83" />
+
+    <Button
+        android:id="@+id/adminSummary"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
+        android:drawableStart="@drawable/ic_user_dashboard_icon"
+        android:drawableLeft="@drawable/baseline_login_24"
+        android:drawableTint="@color/white"
+        android:text="Complaint Summary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/adminComplaint"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/adminComplaint"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADMIN DASHBOARD"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

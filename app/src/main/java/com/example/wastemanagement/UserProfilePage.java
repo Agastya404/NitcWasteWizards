@@ -51,9 +51,9 @@ public class UserProfilePage extends AppCompatActivity {
         emailtext = findViewById(R.id.signupuseremailid);
         mobilenotext = findViewById(R.id.signupusermobileno);
         imageavatar = findViewById(R.id.imageView3);
-        personpic = findViewById(R.id.userprofilepic);
+        //personpic = findViewById(R.id.userprofilepic);
 //        mobilepic = findViewById(R.id.userprofilmobilepic);
-        emailpic = findViewById(R.id.userprofilemailpic);
+      //  emailpic = findViewById(R.id.userprofilemailpic);
         logout = findViewById(R.id.logoutProfile);
 
         database = FirebaseDatabase.getInstance();
@@ -64,7 +64,7 @@ public class UserProfilePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 usernametext.setText(snapshot.child("username").getValue().toString());
                 emailtext.setText(snapshot.child("email").getValue().toString());
-                mobilenotext.setText(snapshot.child("mobileno").getValue().toString());
+                mobilenotext.setText(snapshot.child("phone").getValue().toString());
             }
 
             @Override

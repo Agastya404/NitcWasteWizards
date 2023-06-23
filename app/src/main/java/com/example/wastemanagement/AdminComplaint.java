@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class AdminComplaint extends AppCompatActivity {
 
@@ -56,7 +57,7 @@ public class AdminComplaint extends AppCompatActivity {
                     UserComplaint complaint =dataSnapshot.getValue(UserComplaint.class);
 //                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
-//                    if(complaint.getUname() == mAuth.getCurrentUser().getEmail())
+                   if(Objects.equals(complaint.getStatus(),"WAITING"))
                          usercomplaint.add(complaint);
 
                 }

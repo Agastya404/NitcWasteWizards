@@ -9,10 +9,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class UserDashboardPage extends AppCompatActivity {
 
-    Button lodgeCBtn,viewCBtn,viewSBtn,viewProfile,feedbackBtn;
+    Button lodgeCBtn,viewCBtn,viewSBtn,viewProfile,feedbackBtn,logout;
 
     private ImageView imageview;
 
@@ -31,6 +33,7 @@ public class UserDashboardPage extends AppCompatActivity {
         viewSBtn=findViewById(R.id.viewSBtn);
         viewProfile=findViewById(R.id.myProfile);
         feedbackBtn=findViewById(R.id.feedback);
+        logout=findViewById(R.id.userlogout);
 
         viewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +72,15 @@ public class UserDashboardPage extends AppCompatActivity {
                 Toast.makeText(UserDashboardPage.this, "See your complain here!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(UserDashboardPage.this,UserViewStatus.class));
                 finish();
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(UserDashboardPage.this, "Logout Successful", Toast.LENGTH_SHORT).show();
+                FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+                firebaseAuth.signOut();
+                startActivity(new Intent(UserDashboardPage.this,MainActivity.class ));
             }
         });
 

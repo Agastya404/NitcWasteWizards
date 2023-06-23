@@ -16,7 +16,7 @@ public class AdminManageStaff extends AppCompatActivity {
     Button addStaff,showStaff;
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(AdminManageStaff.this,AdminDashboardPage.class));
+        startActivity(new Intent(AdminManageStaff.this,SupervisorDashboard.class));
         finish();
     }
     protected void onCreate(Bundle savedInstanceState) {

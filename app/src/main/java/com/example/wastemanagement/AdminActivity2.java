@@ -8,8 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminActivity2 extends AppCompatActivity {
@@ -28,13 +32,22 @@ public class AdminActivity2 extends AppCompatActivity {
         adminLogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(adminEmail.getText().toString().equals("admin@nitc.ac.in") && adminPass.getText().toString().equals("admin123")){
-                    Toast.makeText(AdminActivity2.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(AdminActivity2.this,AdminDashboardPage.class ));
-                }
-                else{
-                    Toast.makeText(AdminActivity2.this, "Login Failed! Enter Email and Password Correctly!", Toast.LENGTH_SHORT).show();
-                }
+                FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+                firebaseAuth.signInWithEmailAndPassword(adminEmail.getText().toString(), adminPass.getText().toString())
+                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                Toast.makeText(AdminActivity2.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(AdminActivity2.this,AdminDashboardPage.class ));
+                                finish();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(AdminActivity2.this, "Login Failed! Enter Email and Password Correctly!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
 
