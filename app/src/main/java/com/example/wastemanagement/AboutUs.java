@@ -14,6 +14,7 @@ public class AboutUs extends AppCompatActivity {
         setContentView(R.layout.activity_about_us);
 
         TextView rekha=(TextView)  findViewById(R.id.rekhalinkedin);
+
         rekha.setMovementMethod(LinkMovementMethod.getInstance());
 
         TextView aman=(TextView)  findViewById(R.id.amanlinkedin);
